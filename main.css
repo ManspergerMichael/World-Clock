@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.header{
+    text-align: center;
+    font-family: fantasy;
+}
+.main{
+    border: green 3px solid;
+    text-align: center;
+    margin-left: 32%;
+    width: 500px;
+
+}
