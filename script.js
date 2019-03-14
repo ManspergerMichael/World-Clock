@@ -3,11 +3,11 @@
 window.onload = 
 
 function init(){
-    var UTCTime = new Date().UTC();
-    console.log(UTCTime);
+    var time = new Date();
+    console.log(time.getHours().toString() + ":"+time.getMinutes().toString());
     var PST = document.getElementById("PST");
     var EST = document.getElementById("EST");
-    PST.innerHTML = TacomaTime.toTimeString();
-    EST.innerHTML = time.toTimeString();
+    PST.innerHTML = ""+((time.getHours()- 12)-3)+":"+time.getMinutes();
+    EST.innerHTML = ""+(time.getHours()- 12)+":"+time.getMinutes();
     
 }
