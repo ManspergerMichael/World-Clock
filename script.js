@@ -16,7 +16,7 @@ function init(){
     //12 is subtracted to convert from 24 hour clock to 12 hour
     if(time.getHours() > 12)
     {
-        pstHours = (time.getHours()- 12)-3;
+        pstHours = time.getHours()- 15;
         estHours = time.getHours() - 12;
         timeThing = "PM";
     }
@@ -39,5 +39,9 @@ function init(){
     }
     PST.innerHTML = "" + pstHours + minutesPlace + pstMinutes + " " + timeThing;
     EST.innerHTML = "" + estHours + minutesPlace + estMinutes + " " + timeThing;
-     
+
+    if(pstHours === 4 && pstMinutes === 20)
+    {
+        this.document.getElementById("blazeIt").innerHTML = "...Dave's not here man...";
+    }
 }
