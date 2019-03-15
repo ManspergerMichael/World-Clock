@@ -6,43 +6,38 @@ function init(){
     var time = new Date();
     var PST = document.getElementById("PST");
     var EST = document.getElementById("EST");
+    var pstHours;
+    var pstMinutes;
+    var estHours;
+    var estMinutes;
+    var timeThing;
+    var minutesPlace;
 
     //12 is subtracted to convert from 24 hour clock to 12 hour
     if(time.getHours() > 12)
     {
-        //system time is used, because M is in the eastrn time zone 
-        //EST will use system time and PST will display system time - 3 hours
+        pstHours = (time.getHours()- 12)-3;
+        estHours = time.getHours() - 12;
+        timeThing = "PM";
+    }
+    else{
+        pstHours = time.getHours()-3;
+        estHours = time.getHours();
+        timeThing = "AM";
+    }
 
-        //noticed a bug. If minutes was under 10, only one digit would display
-        //if minutes is under 10, include a 0 in the string
-        if(time.getMinutes() < 10)
-        {
-            PST.innerHTML = ""+((time.getHours()- 12)-3)+":0"+time.getMinutes()+" PM";
-            EST.innerHTML = ""+(time.getHours()- 12)+":0"+time.getMinutes()+" PM";
-        }
-        else
-        {
-            PST.innerHTML = ""+((time.getHours()- 12)-3)+":"+time.getMinutes()+" PM";
-            EST.innerHTML = ""+(time.getHours()- 12)+":"+time.getMinutes()+" PM";
-        }
-        
-        
+    pstMinutes = time.getMinutes();
+    estMinutes = time.getMinutes();
+    
+    if(time.getMinutes() < 10)
+    {
+        minutesPlace = ":0";
     }
     else
     {
-        if(time.getMinutes() < 10)
-        {
-            PST.innerHTML = ""+time.getHours()-3+":0"+time.getMinutes()+" AM";
-            EST.innerHTML = ""+time.getHours()+":0"+time.getMinutes()+" AM";
-        }
-        else
-        {
-            {
-                PST.innerHTML = ""+time.getHours()-3+":"+time.getMinutes()+" AM";
-                EST.innerHTML = ""+time.getHours()+":"+time.getMinutes()+" AM";
-            }
-        }
+        minutesPlace = ":";
     }
-    
-    
+    PST.innerHTML = "" + pstHours + minutesPlace + pstMinutes + " " + timeThing;
+    EST.innerHTML = "" + estHours + minutesPlace + estMinutes + " " + timeThing;
+     
 }
