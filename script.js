@@ -7,7 +7,7 @@ function init(){
     var time = new Date();
     var PST = document.getElementById("PST");
     var EST = document.getElementById("EST");
-    //these variables are used to build the strings that will display
+    //these variables are used to build the strings that will display the time
     var pstHours;
     var pstMinutes;
     var estHours;
