@@ -12,14 +12,36 @@ function init(){
     {
         //system time is used, because M is in the eastrn time zone 
         //EST will use system time and PST will display system time - 3 hours
+
+        //noticed a bug. If minutes was under 10, only one digit would display
+        //if minutes is under 10, include a 0 in the string
+        if(time.getMinutes() < 10)
+        {
+            PST.innerHTML = ""+((time.getHours()- 12)-3)+":0"+time.getMinutes()+" PM";
+            EST.innerHTML = ""+(time.getHours()- 12)+":0"+time.getMinutes()+" PM";
+        }
+        else
+        {
+            PST.innerHTML = ""+((time.getHours()- 12)-3)+":"+time.getMinutes()+" PM";
+            EST.innerHTML = ""+(time.getHours()- 12)+":"+time.getMinutes()+" PM";
+        }
         
-        PST.innerHTML = ""+((time.getHours()- 12)-3)+":"+time.getMinutes()+" PM";
-        EST.innerHTML = ""+(time.getHours()- 12)+":"+time.getMinutes()+" PM";
+        
     }
     else
     {
-        PST.innerHTML = ""+time.getHours()-3+":"+time.getMinutes()+" AM";
-        EST.innerHTML = ""+time.getHours()+":"+time.getMinutes()+" AM";
+        if(time.getMinutes() < 10)
+        {
+            PST.innerHTML = ""+time.getHours()-3+":0"+time.getMinutes()+" AM";
+            EST.innerHTML = ""+time.getHours()+":0"+time.getMinutes()+" AM";
+        }
+        else
+        {
+            {
+                PST.innerHTML = ""+time.getHours()-3+":"+time.getMinutes()+" AM";
+                EST.innerHTML = ""+time.getHours()+":"+time.getMinutes()+" AM";
+            }
+        }
     }
     
     

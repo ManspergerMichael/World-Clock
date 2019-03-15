@@ -11,17 +11,16 @@ body{
   top: 300px;
   left: 700px;
   position: absolute;
+  text-align: right;
+  font-family: fantasy;
+  
   
 }
 .header{
-    text-align: right;
-    font-family: fantasy;
-    color: white;
     font-size: 32px;
+    color: white;
 }
 .main{
-    text-align: right;
-    color: white;
-    font-family: fantasy;
     font-size: 28px;
+    color: white;
 }
