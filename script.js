@@ -51,4 +51,5 @@ function init(){
     {
         this.document.getElementById("blazeIt").innerHTML = "...Dave's not here man...";
     }
+    console.log('http://api.timezonedb.com/v2.1/list-time-zone')
 }
