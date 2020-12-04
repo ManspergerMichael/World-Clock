@@ -1,9 +1,17 @@
 $(document).ready(function(){
-  var date = new Date();
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var AM_PM = 'AM';
-  if(hours > 12){
+    var PST = "http://worldtimeapi.org/api/America/Los_Angeles";
+    var EST = "http://worldtimeapi.org/api/America/Kentucky/Louisville";
+ $.get(PST, function(Data){
+    console.log(Data);
+    var datetime = Data.datetime;
+    console.log(datetime);
+    var Jdate = new Date(datetime);
+    console.log(Jdate);
+    console.log(Jdate.getHours);
+ });
+});
+
+/* if(hours > 12){
       AM_PM = 'PM';
       hours = hours - 12;
   }
@@ -14,7 +22,7 @@ $(document).ready(function(){
   var Michael_Time = "" + hours - 3 + ":" + minutes + " " +AM_PM;
 
   $('#EST').text(Martin_Time);
-  $('#PST').text(Michael_Time);
+  $('#PST').text(Michael_Time); */
 
   /*
     ideas:
@@ -22,7 +30,3 @@ $(document).ready(function(){
     connect to weather api,
     ..
   */
-
-
-});
-
